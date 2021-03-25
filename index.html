@@ -1,0 +1,19 @@
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script>
+    var vanDongVien = {
+        ma_van_dong_vien: 'PH11076',
+        ho_va_ten: "Nguyễn Văn Đức",
+        ngay_sinh: "20/08/2001",
+        giai_thuong: "Huy Chuong Vang",
+        kiemTraDieuKien: function(ngayToChuc, dieuKienTuoi) {
+            var momentNgaySinh = moment(this.ngay_sinh, "DD/MM/YYYY");
+            momentNgayToChuc = moment(ngayToChuc, "DD/MM/YYYY")
+            var tuoi = momentNgayToChuc.diff(momentNgaySinh, "years");
+            if (tuoi < dieuKienTuoi) return false;
+            else return true;
+
+        }
+    }
+    vanDongVien.kiemTraDieuKien("20/08/2020", 12) ? console.log('du dieu kien') :
+        console.log('khong du dieu kien');
+</script>
